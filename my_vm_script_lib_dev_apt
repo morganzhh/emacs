@@ -1,0 +1,39 @@
+
+1. Create ubuntu 64bit server, 16.04 LTS 
+2. sudo apt-get update
+¹¤¾ß
+1. sudo add-apt-repository ppa:ubuntu-elisp/ppa
+2. sudo apt-get update
+3. sudo apt-get install emacs24 vim git git-flow global docker docker.io cmake doxygen doxygen-doc doxygen-latex python-pip asciinema python3-pip
+
+for virtual box shared folder
+sudo usermod -a -G vboxsf
+
+for running docker without root
+sudo gpasswd -a ${USER} docker
+
+ put every 3rd into 3rd directory
+ mkdir 3rd
+
+    libyang
+    1.  sudo apt-get install libpcre3 libpcre3-dev
+    2.  cd ~/3rd && git clone git://git.cryptomilk.org/projects/cmocka.git && cd cmocka && mkdir build && cd build && cmake .. && make && sudo make install
+       3.  cd ~/3rd && git clone https://github.com/CESNET/libyang.git && cd libyang && mkdir build && cd build && cmake .. && make && sudo make install
+
+       libnetconf2
+       1. sudo apt-get install zlib1g zlib1g-dev libssl-dev libval-dev
+       2. cd ~/3rd && git clone http://git.libssh.org/projects/libssh.git && cd libssh && mkdir build && cd build && cmake .. && make && sudo make install
+       3.  cd ~/3rd && git clone https://github.com/CESNET/libnetconf2.git && cd libnetconf2 && mkdir build && cd build && cmake .. && make && sudo make install
+
+       sysrepo
+
+       1. sudo apt-get install libprotobuf-dev libprotoc-dev python-protobuf libev-dev libvc-dev libavl-dev python-dev swig lua5.1 lua5.1-dev autoconf libtool
+       2.  cd ~/3rd && git clone https://github.com/google/protobuf.git && cd protobuf && ./autogen.sh && ./configure && make && sudo make install
+       3. sudo ldconfig  #refresh shared library
+       4. cd ~/3rd && git clone https://github.com/protobuf-c/protobuf-c.git  && cd protobuf-c && ./autogen.sh && ./configure && make && sudo make install
+       5. cd ~/3rd && git clone https://github.com/sysrepo/libredblack.git && cd libredblack &&  ./configure && make && sudo make install
+       6. cd ~/3rd && git clone https://github.com/sysrepo/sysrepo.git && cd sysrepo && mkdir build && cd build && cmake .. && make && sudo make install
+
+       Netopeer2
+       1. cd ~/3rd && git clone https://github.com/CESNET/Netopeer2.git && cd Netopeer2 && mkdir build  && cd build && mkdir server && cd server  && cmake ../../server && make && sudo make install
+
